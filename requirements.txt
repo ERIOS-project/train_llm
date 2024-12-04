@@ -1,0 +1,20 @@
+# AutoTrain Advanced and related dependencies
+autotrain-advanced==0.8.31
+datasets==3.1.0  # Compatible avec autotrain-advanced
+sentencepiece==0.2.0  # Compatible avec autotrain-advanced
+
+# PyTorch with Metal backend for macOS
+torch==2.0.1
+torchvision==0.15.2
+
+# Accelerate and additional ML tools
+accelerate==1.1.1  # Compatible avec autotrain-advanced
+scipy==1.11.2
+
+# Logging
+tensorboard==2.16.2  # Compatible avec autotrain-advanced
+
+# Miscellaneous tools
+protobuf==3.20.3
+python-dotenv==1.0.0
+bitsandbytes==0.42.0
