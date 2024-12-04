@@ -17,4 +17,4 @@ tensorboard==2.16.2  # Compatible avec autotrain-advanced
 # Miscellaneous tools
 protobuf==3.20.3
 python-dotenv==1.0.0
-bitsandbytes==0.42.0
+bitsandbytes==0.44.1
