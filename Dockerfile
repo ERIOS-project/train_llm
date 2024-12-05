@@ -15,13 +15,16 @@ RUN apt-get update && apt-get install -y \
 # Définir le répertoire de travail
 WORKDIR /app
 
-# Installer packaging et setuptools avant d'installer les dépendances
+# Mettre à jour pip et installer setuptools, wheel, packaging
 RUN pip install --upgrade pip setuptools wheel packaging
+
+# Installer torch et torchvision avant les autres dépendances
+RUN pip install torch torchvision torchaudio
 
 # Copier le fichier requirements.txt
 COPY requirements.txt .
 
-# Installer les dépendances Python
+# Installer les dépendances Python restantes
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier le reste du projet dans le conteneur
