@@ -15,9 +15,7 @@ RUN apt-get update && apt-get install -y \
 
 # Installer CUDA 12.7 et ses outils
 # Installer PyTorch avec support CUDA
-RUN pip install --upgrade pip setuptools wheel packaging && \
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu127
-
+RUN pip install --upgrade pip setuptools wheel packaging 
 # Définir le répertoire de travail
 WORKDIR /app
 
