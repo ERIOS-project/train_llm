@@ -14,16 +14,6 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Installer CUDA 12.7 et ses outils
-RUN wget https://developer.download.nvidia.com/compute/cuda/12.7.0/local_installers/cuda-repo-ubuntu2204-12-7-local_12.7.0-530.30.02-1_amd64.deb && \
-    dpkg -i cuda-repo-ubuntu2204-12-7-local_12.7.0-530.30.02-1_amd64.deb && \
-    cp /var/cuda-repo-ubuntu2204-12-7-local/cuda-*.keyring /usr/share/keyrings/ && \
-    apt-get update && apt-get install -y cuda && \
-    rm cuda-repo-ubuntu2204-12-7-local_12.7.0-530.30.02-1_amd64.deb
-
-# Mettre CUDA dans le PATH et configurer CUDA_HOME
-ENV PATH="/usr/local/cuda/bin:${PATH}"
-ENV CUDA_HOME="/usr/local/cuda"
-
 # Installer PyTorch avec support CUDA
 RUN pip install --upgrade pip setuptools wheel packaging && \
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu127
