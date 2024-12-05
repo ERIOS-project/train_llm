@@ -25,7 +25,14 @@ RUN pip install --upgrade pip && \
 # Copier le reste du projet dans le conteneur
 COPY . .
 
-
-
-# Commande par défaut pour exécuter le script
-CMD ["python", "main.py"]
+# Commande par défaut pour exécuter la commande
+CMD ["autotrain", "llm", 
+     "--train",
+     "--model", "microsoft/Phi-3-mini-4k-instruct",
+     "--data-path", "timdettmers/openassistant-guanaco",
+     "--lr", "2e-4",
+     "--batch-size", "2",
+     "--epochs", "1",
+     "--trainer", "sft",
+     "--peft",
+     "--project-name", "my-own-phi-3-on-mac"]
