@@ -15,12 +15,14 @@ RUN apt-get update && apt-get install -y \
 # Définir le répertoire de travail
 WORKDIR /app
 
+# Installer packaging et setuptools avant d'installer les dépendances
+RUN pip install --upgrade pip setuptools wheel packaging
+
 # Copier le fichier requirements.txt
 COPY requirements.txt .
 
 # Installer les dépendances Python
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier le reste du projet dans le conteneur
 COPY . .
